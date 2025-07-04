@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famboard – Dein Familienmanager</title>
+    <link rel="stylesheet" href="legal-style.css">
+    <style>
+        /* Spezifisches Styling für die Landing Page */
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Startet oben, nicht mittig */
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .landing-container {
+            background-color: var(--primary-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid var(--accent-color);
+        }
+        .landing-container img.logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border-radius: 50%; /* Rundes Logo */
+            border: 5px solid var(--accent-color);
+            object-fit: cover;
+        }
+        .landing-container h1 {
+            font-family: 'Caveat', cursive; /* Deine spezielle Schriftart */
+            font-size: 3.5em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .landing-container p {
+            font-size: 1.2em;
+            color: var(--text-on-light-bg);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .landing-container .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+            display: inline-block; /* Für Zentrierung der Liste */
+        }
+        .landing-container .features-list li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: var(--text-on-light-bg);
+        }
+        .landing-container .features-list li::before {
+            content: '✅'; /* Haken-Symbol */
+            margin-right: 10px;
+        }
+        .landing-container .links a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-on-dark-bg);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 10px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: var(--box-shadow);
+        }
+        .landing-container .links a:hover {
+            background-color: var(--accent-color-hover);
+            transform: translateY(-2px);
+        }
+        .landing-container .footer-notes {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-default);
+        }
+        .landing-container .footer-notes a {
+            color: var(--color-default); /* Links im Footer nicht hervorheben */
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .landing-container {
+                padding: 25px;
+            }
+            .landing-container h1 {
+                font-size: 2.5em;
+            }
+            .landing-container p {
+                font-size: 1em;
+            }
+            .landing-container .links a {
+                width: calc(100% - 20px); /* Buttons auf kleineren Screens vollbreit */
+                display: block;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container">
+        <img src="Leo.png" alt="Famboard Logo Leo" class="logo">
+        <h1>Famboard – Dein smarter Familienmanager!</h1>
+        <p>Organisiere das Familienleben spielend leicht: Noten erfassen, Taschengeld verwalten, Wünsche festhalten und alle wichtigen Termine im Blick behalten – kostenlos und datenschutzfreundlich!</p>
+
+        <ul class="features-list">
+            <li>Noten- und Belohnungssystem</li>
+            <li>Digitale Wunschliste für Kinder</li>
+            <li>Intelligenter Familienkalender (optional mit Google Sync)</li>
+            <li>Sicherer Elternbereich mit Passwortschutz</li>
+            <li>Keine Werbung, kein Tracking, lokal gespeichert</li>
+        </ul>
+
+        <div class="links">
+            <!-- Link zum Google Play Store (Platzhalter, falls du ihn später hast) -->
+            <a href="https://play.google.com/store/apps/details?id=[DEINE_APP_ID]" target="_blank">
+                Im Google Play Store entdecken!
+            </a>
+            <a href="datenschutz.html">Datenschutzerklärung</a>
+            <a href="impressum.html">Impressum</a>
+        </div>
+
+        <div class="footer-notes">
+            <p>Famboard ist ein kostenloses Hobbyprojekt von einer Privatperson.</p>
+            <p>Alle Inhalte, Grafiken und das Maskottchen "Leo" © [Dein Name/Jahreszahl]. Alle Rechte vorbehalten. Unerlaubte Nutzung ist untersagt.</p>
+            <p>Kontakt: <a href="mailto:famboard61@gmail.com">famboard61@gmail.com</a></p>
+        </div>
+    </div>
+</body>
+</html>

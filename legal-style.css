@@ -1,0 +1,191 @@
+/* Rechtliches/legal-style.css (ANGEPASST FÜR WEBDU) */
+
+/* --- CSS Variablen (kopiert aus deiner style.css) --- */
+:root {
+    --bg-color: #82c8fc;         /* Dein Hellblau */
+    --primary-color: #ffffff;    /* Weiß für Hintergründe innerhalb der Elemente */
+    --accent-color: #4e0727;      /* Dein Bordeaux für Buttons, Akzente */
+    --accent-color-hover: #6a0a36; /* Dunkleres Bordeaux für Hover-Effekte */
+    
+    --text-on-light-bg: #2c3e50; /* Dunkler Text für helle Hintergründe */
+    --text-on-dark-bg: #ffffff;   /* Heller Text für dunkne Buttons */
+
+    --grade-1-color: #27ae60;     /* Grün für gute Noten / Erfolg */
+    --grade-4-color: #c0392b;     /* Rot für schlechte Noten / Fehler */
+    --warning-color: #f39c12;     /* Orange für Warnungen */
+    --success-color: #27ae60;     /* Grün für Erfolg (z.B. Wunsch einlösen) */
+    --success-color-hover: #229954; /* Dunkleres Grün für Hover */
+    
+    --color-default: #6c757d; /* Grau als Fallback */
+
+    --border-radius: 12px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Globale Styles für die Webseite --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; }
+body { 
+    height: 100%; 
+    font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    background-color: var(--bg-color); /* Direkt die App-Hintergrundfarbe */
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; /* Standardmäßig oben starten */
+    min-height: 100vh; /* Mindesthöhe für den Body */
+    color: var(--text-on-light-bg); 
+    padding: 20px; /* Globaler Padding für kleine Bildschirme */
+}
+
+/* Haupt-Wrapper für alle Legal-Seiten */
+.legal-page-wrapper {
+    background-color: var(--primary-color); /* Weißer Hintergrund */
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px; /* Maximale Breite wie App-Container */
+    width: 100%;
+    margin: 20px auto; /* Zentrierung */
+    border: 2px solid var(--accent-color); /* Bordeaux-Rand */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px); /* Damit Footer unten bleibt auf kleinen Seiten */
+}
+
+/* Kopfzeile (Titel der Seite) */
+.legal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.legal-header h1 { 
+    color: var(--accent-color); /* Bordeaux-Akzent */
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.2);
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+/* Obere Navigation (Startseite, Datenschutz, Impressum) */
+.legal-nav-top {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Umbruch auf kleinen Bildschirmen */
+}
+.legal-nav-top a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-color);
+    color: var(--text-on-dark-bg);
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: var(--box-shadow);
+}
+.legal-nav-top a:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+}
+
+
+/* Wrapper für den Haupttextinhalt */
+.legal-content-wrapper {
+    flex-grow: 1; /* Nimmt den verbleibenden Platz ein */
+    overflow-y: auto; /* Ermöglicht Scrollen nur dieses Blocks */
+    -webkit-overflow-scrolling: touch;
+    padding: 15px 0; /* Optionaler interner Padding */
+}
+
+/* Überschriften innerhalb des Inhalts-Wrappers */
+.legal-content-wrapper h3 {
+    color: var(--accent-color);
+    text-align: left; /* Überschriften linksbündig für besseren Lesefluss */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Absätze und Listenelemente */
+.legal-content-wrapper p,
+.legal-content-wrapper ul,
+.legal-content-wrapper li {
+    text-align: left;
+    margin-bottom: 10px;
+    color: var(--text-on-light-bg);
+    opacity: 0.9;
+    line-height: 1.5; /* Bessere Lesbarkeit */
+}
+.legal-content-wrapper ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    padding-left: 0;
+}
+.legal-content-wrapper li {
+    margin-bottom: 5px;
+}
+
+/* Spezielle Boxen wie "Hinweis zum privaten Charakter" oder "Highlight" */
+.legal-content-wrapper .disclaimer,
+.legal-content-wrapper .highlight {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid var(--accent-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    text-align: left;
+    color: var(--text-on-light-bg);
+}
+.legal-content-wrapper .disclaimer p,
+.legal-content-wrapper .highlight p {
+    margin-bottom: 0;
+}
+
+/* Links innerhalb des Inhalts-Wrappers */
+.legal-content-wrapper a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+.legal-content-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* Besondere Zentrierung für Kontakt-E-Mail */
+.legal-content-wrapper p.centered-contact {
+    text-align: center;
+}
+
+/* Footer der Legal-Seiten */
+.legal-footer { 
+    margin-top: auto; /* Sorgt dafür, dass der Footer ganz unten bleibt */
+    padding-top: 20px; 
+    text-align: center; 
+    font-size: 0.85em;
+    color: var(--color-default);
+}
+.legal-footer p {
+    margin-bottom: 0;
+}
+
+
+/* --- Desktop Styles --- */
+@media (min-width: 768px) {
+    body {
+        padding: 40px; /* Mehr Padding auf Desktop */
+    }
+    .legal-page-wrapper {
+        padding: 40px;
+        margin: 0 auto; /* Oben kein Margin erzwingen, da Body Padding hat */
+        min-height: auto; /* Nicht mehr die volle Höhe des Viewports erzwingen */
+    }
+    .legal-header h1 {
+        font-size: 2.8em;
+    }
+    .legal-content-wrapper h3 {
+        font-size: 1.5em;
+        margin-top: 35px;
+    }
+}
