@@ -1,177 +1,141 @@
-/* Rechtliches/legal-style.css (ANGEPASST FÜR WEBDU) */
+/* Rechtliches/legal-style.css */
 
 /* --- CSS Variablen (kopiert aus deiner style.css) --- */
+
+
 :root {
-    --bg-color: #82c8fc;         /* Dein Hellblau */
-    --primary-color: #ffffff;    /* Weiß für Hintergründe innerhalb der Elemente */
-    --accent-color: #4e0727;      /* Dein Bordeaux für Buttons, Akzente */
-    --accent-color-hover: #6a0a36; /* Dunkleres Bordeaux für Hover-Effekte */
-    
-    --text-on-light-bg: #2c3e50; /* Dunkler Text für helle Hintergründe */
-    --text-on-dark-bg: #ffffff;   /* Heller Text für dunkne Buttons */
-
-    --grade-1-color: #27ae60;     /* Grün für gute Noten / Erfolg */
-    --grade-4-color: #c0392b;     /* Rot für schlechte Noten / Fehler */
-    --warning-color: #f39c12;     /* Orange für Warnungen */
-    --success-color: #27ae60;     /* Grün für Erfolg (z.B. Wunsch einlösen) */
-    --success-color-hover: #229954; /* Dunkleres Grün für Hover */
-    
-    --color-default: #6c757d; /* Grau als Fallback */
-
+    --bg-color: #82c8fc;
+    --primary-color: #ffffff;
+    --accent-color: #4e0727;
+    --text-on-light-bg: #2c3e50;
+    --text-on-dark-bg: #ffffff;
     --border-radius: 12px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Globale Styles für die Webseite --- */
+/* --- Globale Styles --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { height: 100%; }
-body { 
-    height: 100%; 
-    font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-    background-color: var(--bg-color); /* Direkt die App-Hintergrundfarbe */
-    display: flex; 
-    justify-content: center; 
-    align-items: flex-start; /* Standardmäßig oben starten */
-    min-height: 100vh; /* Mindesthöhe für den Body */
-    color: var(--text-on-light-bg); 
-    padding: 20px; /* Globaler Padding für kleine Bildschirme */
+
+html {
+    height: 100%;
 }
 
-/* Haupt-Wrapper für alle Legal-Seiten */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-on-light-bg);
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100%;
+    /* WICHTIG: overflow: auto erlaubt das Scrollen wieder */
+    overflow-y: auto;
+}
+
+/* Haupt-Wrapper für die Seite */
 .legal-page-wrapper {
-    background-color: var(--primary-color); /* Weißer Hintergrund */
+    background-color: var(--primary-color);
     padding: 25px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    max-width: 800px; /* Maximale Breite wie App-Container */
+    max-width: 800px;
     width: 100%;
-    margin: 20px auto; /* Zentrierung */
-    border: 2px solid var(--accent-color); /* Bordeaux-Rand */
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 40px); /* Damit Footer unten bleibt auf kleinen Seiten */
+    margin: 0 auto;
+    border: 2px solid var(--accent-color);
 }
 
-/* Kopfzeile (Titel der Seite) */
+/* Kopfzeile */
 .legal-header {
     text-align: center;
     margin-bottom: 25px;
 }
-.legal-header h1 { 
+
+.legal-header h1 {
     color: var(--accent-color);
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.2);
-    font-size: 2.2em;
+    font-size: clamp(1.8em, 5vw, 2.5em); /* Responsive Schriftgröße */
     font-weight: 700;
-    overflow-wrap: break-word; /* NEU: Erzwingt den Zeilenumbruch bei langen Wörtern */
-    word-wrap: break-word;     /* NEU: Fallback für ältere Browser */
+    /* FIX: Verhindert, dass der Text überläuft */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-/* Obere Navigation (Startseite, Datenschutz, Impressum) */
+/* Obere Navigation (Buttons) */
 .legal-nav-top {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 25px;
-    flex-wrap: wrap; /* Umbruch auf kleinen Bildschirmen */
+    flex-wrap: wrap;
 }
+
 .legal-nav-top a {
-    display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: var(--border-radius);
     background-color: var(--accent-color);
     color: var(--text-on-dark-bg);
     text-decoration: none;
-    font-size: 0.95em;
     font-weight: bold;
-    transition: all 0.2s ease;
-    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
 }
+
 .legal-nav-top a:hover {
-    background-color: var(--accent-color-hover);
     transform: translateY(-2px);
 }
 
-
-/* Wrapper für den Haupttextinhalt */
-.legal-content-wrapper {
-    flex-grow: 1; /* Nimmt den verbleibenden Platz ein */
-    overflow-y: auto; /* Ermöglicht Scrollen nur dieses Blocks */
-    -webkit-overflow-scrolling: touch;
-    padding: 15px 0; /* Optionaler interner Padding */
-}
-
-/* Überschriften innerhalb des Inhalts-Wrappers */
+/* Inhaltsbereich */
 .legal-content-wrapper h3 {
     color: var(--accent-color);
-    text-align: left; /* Überschriften linksbündig für besseren Lesefluss */
     margin-top: 25px;
     margin-bottom: 15px;
     padding-bottom: 5px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Absätze und Listenelemente */
 .legal-content-wrapper p,
 .legal-content-wrapper ul,
 .legal-content-wrapper li {
-    text-align: left;
-    margin-bottom: 10px;
-    color: var(--text-on-light-bg);
-    opacity: 0.9;
-    line-height: 1.5; /* Bessere Lesbarkeit */
+    margin-bottom: 15px;
 }
+
 .legal-content-wrapper ul {
-    list-style-type: disc;
-    margin-left: 25px;
-    padding-left: 0;
-}
-.legal-content-wrapper li {
-    margin-bottom: 5px;
+    list-style-position: inside;
 }
 
-/* Spezielle Boxen wie "Hinweis zum privaten Charakter" oder "Highlight" */
-.legal-content-wrapper .disclaimer,
-.legal-content-wrapper .highlight {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 2px solid var(--accent-color);
-    padding: 15px;
-    border-radius: var(--border-radius);
-    margin-bottom: 20px;
-    text-align: left;
-    color: var(--text-on-light-bg);
-}
-.legal-content-wrapper .disclaimer p,
-.legal-content-wrapper .highlight p {
-    margin-bottom: 0;
-}
-
-/* Links innerhalb des Inhalts-Wrappers */
 .legal-content-wrapper a {
     color: var(--accent-color);
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
+    overflow-wrap: break-word; /* Links dürfen auch umbrechen */
+    word-wrap: break-word;
 }
+
 .legal-content-wrapper a:hover {
     text-decoration: underline;
 }
 
-/* Besondere Zentrierung für Kontakt-E-Mail */
-.legal-content-wrapper p.centered-contact {
+.highlight, .disclaimer {
+    background-color: #f7f7f7;
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.centered-contact,
+p[style*="text-align: center"] {
     text-align: center;
 }
 
-/* Footer der Legal-Seiten */
-.legal-footer { 
-    margin-top: auto; /* Sorgt dafür, dass der Footer ganz unten bleibt */
-    padding-top: 20px; 
-    text-align: center; 
-    font-size: 0.85em;
-    color: var(--color-default);
+/* Footer */
+.legal-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
-.legal-footer p {
-    margin-bottom: 0;
-}
-
 
 /* --- Desktop Styles --- */
 @media (min-width: 768px) {
